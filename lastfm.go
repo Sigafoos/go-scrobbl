@@ -40,8 +40,12 @@ func New(key, secret string, verbose bool) *LastFM {
 	}
 }
 
-func (l *LastFM) SessionKey(key string) {
+func (l *LastFM) SetSessionKey(key string) {
 	l.sessionkey = key
+}
+
+func (l *LastFM) SetVerbose(verbose bool) {
+	l.verbose = verbose
 }
 
 func (l *LastFM) Authenticated() bool {
