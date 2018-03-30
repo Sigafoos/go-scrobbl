@@ -3,7 +3,7 @@ package lastfm
 
 var (
 	// Version is the SemVer representation of the module's state.
-	Version = "0.6.0"
+	Version = "0.6.1"
 	// BaseURL is the root of all API calls.
 	BaseURL = "https://ws.audioscrobbler.com/2.0/"
 )

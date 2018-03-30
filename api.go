@@ -54,7 +54,7 @@ func (a *API) Authenticate(username, password string) (string, error) {
 		return "", fmt.Errorf("already authenticated")
 	}
 
-	query := fmt.Sprintf("api_key=%s&method=auth.getMobileSession&password=%s&username=%s", url.QueryEscape(a.key), url.QueryEscape(password), url.QueryEscape(username))
+	query := fmt.Sprintf("api_key=%s&method=auth.getMobileSession&password=%s&username=%s", a.key, password, username)
 	query += fmt.Sprintf("&api_sig=%s&format=json", a.generateSignature(query))
 	req, err := a.newHTTPRequest("POST", BaseURL, bytes.NewBufferString(query))
 	if err != nil {
