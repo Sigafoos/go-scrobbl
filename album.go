@@ -39,6 +39,10 @@ type Image struct {
 // (including the track list) from last.fm. It uses the MusicBrainz ID, if
 // available, as that is more authoritative.
 func (a *Album) GetInfo() error {
+	if a.API == nil {
+		return fmt.Errorf("no API object associated with Album")
+	}
+
 	var query string
 	if a.MusicBrainzID != "" {
 		query = fmt.Sprintf("mbid=%s", a.MusicBrainzID)

@@ -109,10 +109,6 @@ func (a *API) AlbumSearch(album string, requireMBID bool) ([]Album, error) {
 		return []Album{}, err
 	}
 
-	if !requireMBID {
-		return searchResponse.Results.AlbumMatches.Albums, nil
-	}
-
 	albums := []Album{}
 	for _, v := range searchResponse.Results.AlbumMatches.Albums {
 		if requireMBID && v.MusicBrainzID == "" {
