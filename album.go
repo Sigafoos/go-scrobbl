@@ -126,12 +126,12 @@ func (a *Album) Scrobble() error {
 	unescaped, _ := url.QueryUnescape(query)
 	query = fmt.Sprintf("api_sig=%s&%s&format=json", a.API.generateSignature(unescaped), query)
 	req, err := a.API.newHTTPRequest("POST", BaseURL, bytes.NewBufferString(query))
-	if a.API.verbose {
-		fmt.Printf("curl -X POST -d '%s' %s\n", query, BaseURL)
-	}
-
 	if err != nil {
 		return err
+	}
+
+	if a.API.verbose {
+		fmt.Printf("curl -X POST -d '%s' %s\n", query, BaseURL)
 	}
 
 	resp, err := a.API.client.Do(req)
