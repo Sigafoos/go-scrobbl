@@ -22,5 +22,6 @@ type Scrobbler interface {
 
 // reeeeally need to add more
 type scrobbleResponse struct {
-	Error int `json:"error,omitempty"`
+	Error   int    `json:"error,omitempty"`
+	Message string `json:"message"`
 }

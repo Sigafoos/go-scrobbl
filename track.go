@@ -70,7 +70,7 @@ func (t *Track) Scrobble() error {
 	if err != nil {
 		return err
 	} else if scrobbleResp.Error != 0 {
-		return fmt.Errorf("%v", scrobbleResp.Error)
+		return fmt.Errorf("%v", scrobbleResp.Message)
 	}
 
 	return nil
